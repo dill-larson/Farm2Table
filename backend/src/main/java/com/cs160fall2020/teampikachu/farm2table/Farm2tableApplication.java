@@ -1,4 +1,4 @@
-package com.cs160teampikachu.farm2table;
+package com.cs160fall2020.teampikachu.farm2table;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
