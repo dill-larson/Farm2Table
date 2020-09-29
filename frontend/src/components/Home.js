@@ -10,7 +10,7 @@ export default class Home extends Component {
                 <p>
                     Brining the farmer's market to your doorstep.
                 </p>
-                <Button>View Users</Button>
+                <Button>Shop</Button>
             </Jumbotron>
         )
     }
