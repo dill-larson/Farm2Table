@@ -8,7 +8,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <Jumbotron style={{marginBottom: "100px", backgroundImage: `url(${farmland})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
+                <Jumbotron style={{marginBottom: "100px", backgroundImage: `url(${farmland})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", borderTopLeftRadius: "0rem", borderTopRightRadius: "0rem", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
                     <Container>
                         <div style={{marginBottom: "100px"}}>
                             <h1 className="text-main-brand text-center font-weight-bold display-2">Farm To Table</h1>
