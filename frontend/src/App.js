@@ -4,6 +4,7 @@ import './App.scss';
 
 import AdminPanel from './components/AdminPanel';
 import Home from './components/Home';
+import Marketplace from './components/Marketplace';
 import NavigationBar from './components/NavigationBar';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
             <NavigationBar/>
             <Switch>
                 <Route path="/" exact component={() => <Home/>}/>
+                <Route path="/market" exact component={() => <Marketplace/>}/>
                 <Route path="/admin" exact component={AdminPanel}/>
             </Switch>
         </Router>
