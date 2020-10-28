@@ -1,0 +1,13 @@
+//$input-btn-padding-x: 1.75rem;
+$border-radius: 0.75rem;
+$btn-border-radius: 1rem;
+
+$theme-colors: (
+    "light-shade": #F9F8F9,
+    "light-accent": #B59C91,
+    "main-brand": #E09866,
+    "dark-accent": #D08737,
+    "dark-shade": #1ABC56
+);
+
+@import '~bootstrap/scss/bootstrap';
