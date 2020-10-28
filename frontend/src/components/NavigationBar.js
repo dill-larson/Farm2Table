@@ -11,7 +11,7 @@ class NavigationBar extends Component {
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link as={Link} to="/" className="text-main-brand">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/" className="text-main-brand">Market</Nav.Link>
+                        <Nav.Link as={Link} to="/market" className="text-main-brand">Market</Nav.Link>
                         <Nav.Link as={Link} to="/" className="text-main-brand">About Us</Nav.Link>
                         <Nav.Link as={Link} to="/" className="text-main-brand">Contact Us</Nav.Link>
                     </Nav>
