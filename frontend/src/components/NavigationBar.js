@@ -17,8 +17,8 @@ class NavigationBar extends Component {
                         <Nav.Link as={Link} to="/" className="text-main-brand">Contact Us</Nav.Link>
                     </Nav>
                     <Nav className="navbar-right">
-                        <Nav.Link as={Link} to="/admin" className="text-main-brand">Sign Up</Nav.Link>
-                        <Nav.Link as={Link} to="/" className="text-main-brand">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/signup" className="text-main-brand">Sign Up</Nav.Link>
+                        <Nav.Link as={Link} to="/signin" className="text-main-brand">Login</Nav.Link>
                     </Nav>
                     <Nav className="navbar-right-logged-in">
                         <NavDropdown title="{User Name}" drop="left" id="nav-profile">
