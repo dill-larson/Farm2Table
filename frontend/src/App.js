@@ -6,6 +6,8 @@ import AdminPanel from './components/AdminPanel';
 import Home from './components/Home';
 import Marketplace from './components/Marketplace';
 import NavigationBar from './components/NavigationBar';
+import SignIn from './components/signin';
+import SignUp from './components/signup';
 
 function App() {
     return (
@@ -15,6 +17,8 @@ function App() {
                 <Route path="/" exact component={() => <Home/>}/>
                 <Route path="/market" exact component={() => <Marketplace/>}/>
                 <Route path="/admin" exact component={AdminPanel}/>
+                <Route path="/signin" exact component={SignIn} />
+                <Route path="/signup" exact component={SignUp} />
             </Switch>
         </Router>
     );
