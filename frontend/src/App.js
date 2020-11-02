@@ -9,6 +9,7 @@ import NavigationBar from './components/NavigationBar';
 import SignIn from './components/signin';
 import SignUp from './components/signup';
 import Cart from './components/ShoppingCart';
+import UserProfile from './components/UserProfile';
 
 function App() {
     return (
@@ -17,7 +18,7 @@ function App() {
             <Switch>
                 <Route path="/" exact component={() => <Home/>}/>
                 <Route path="/market" exact component={() => <Marketplace/>}/>
-                <Route path="/admin" exact component={AdminPanel}/>
+                <Route path="/profile" exact component={UserProfile}/>
                 <Route path="/signin" exact component={SignIn} />
                 <Route path="/signup" exact component={SignUp} />
                 <Route path="/cart" exact component={Cart} />

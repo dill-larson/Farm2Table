@@ -6,7 +6,7 @@ const Checkout = ({products}) => {
             {
            <div class="row py-5 p-4 bg-white rounded shadow-sm">
            <div class="col-lg-6">
-             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+             <div class="bg-light rounded-pill px-4 py-3 font-weight-bold text-main-brand">Coupon code</div>
              <div class="p-4">
                <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
                <div class="input-group mb-4 border rounded-pill p-2">
@@ -16,14 +16,14 @@ const Checkout = ({products}) => {
                  </div>
                </div>
              </div>
-             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
+             <div class="bg-light rounded-pill px-4 py-3 font-weight-bold text-main-brand">Instructions for seller</div>
              <div class="p-4">
                <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
                <textarea name="" cols="30" rows="2" class="form-control"></textarea>
              </div>
            </div>
            <div class="col-lg-6">
-             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+             <div class="bg-light rounded-pill px-4 py-3  font-weight-bold text-main-brand">Order summary </div>
              <div class="p-4">
                <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                <ul class="list-unstyled mb-4">
