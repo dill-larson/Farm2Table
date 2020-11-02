@@ -18,18 +18,18 @@ export default function SignUp()
 			<Card className="text-center" style={{width: '30rem', margin: 'auto'}}> 
 				<form onSubmit={handleSubmit(onSubmit)} className="text-left">
 					<h2> New users sign up </h2>
-					<p>User name: <input name="username" ref={register({required: true})} /> 
+					<p> User name: <input name="username" ref={register({required: true})} /> 
 					{errors.username && <span>This field is required</span>}</p>
 					
-					<p>Email address: <input name="email" ref={register({required: true })} /> 
+					<p> Email address: <input name="email" ref={register({required: true })} /> 
 					{errors.email && <span>This field is required</span>} </p>
 
-					<p>Role: <select name="role" ref={register}> 
+					<p> Role: <select name="role" ref={register}> 
 						<option value="consumer">Consumer</option>
 						<option value="farmer">Farmer</option>
 					</select></p>
 
-					<p>Password: <input name="password" type="password" ref={register({required: true })} /> 
+					<p> Password: <input name="password" type="password" ref={register({required: true })} /> 
 					{errors.password && <span>This field is required</span>} </p>
 					<input type="submit" style={{ width:'30rem', position: 'absolute'}} className="btn btn-primary" />
 				</form>

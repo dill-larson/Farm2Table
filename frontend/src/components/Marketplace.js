@@ -3,7 +3,6 @@ import ProductList from './ProductList';
 import SearchBox from './SearchBox';
 import Scroll from './Scroll';
 import { Jumbotron} from 'react-bootstrap';
-import NavigationBar from './NavigationBar';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
@@ -15,6 +14,7 @@ class Marketplace extends React.Component{
             searchfield: ''
         }
     }
+    
     componentDidMount(){
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response=> response.json())
@@ -24,12 +24,13 @@ class Marketplace extends React.Component{
     onSearchChange = (event) => {
         this.setState({searchfield: event.target.value})
     }
+
+   
     render(){
         const{products: products, searchfield} = this.state
         const filteredProducts = products.filter(product =>{
             return product.name.toLocaleLowerCase().includes(searchfield.toLocaleLowerCase());
         })
-
         return !products.length ?
         <h1>Loading</h1> :
         (

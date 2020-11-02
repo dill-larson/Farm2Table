@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Button, Card, CardDeck, Col, Container, Jumbotron, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import farmland from '../images/dan-meyers-IQVFVH0ajag-unsplash.jpg';
 
@@ -17,7 +18,7 @@ export default class Home extends Component {
                             </p>
                             <Row>
                                 <Col className="text-center">
-                                    <Button variant="dark-shade" style={{width: "150px"}}>Shop</Button>
+                                   <Link to="/market"> <Button variant="dark-shade" style={{width: "150px"}}>Shop</Button></Link>
                                 </Col>
                             </Row>
                         </div>

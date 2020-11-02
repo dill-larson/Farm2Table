@@ -8,7 +8,11 @@ import Marketplace from './components/Marketplace';
 import NavigationBar from './components/NavigationBar';
 import SignIn from './components/signin';
 import SignUp from './components/signup';
+<<<<<<< Updated upstream
 import Cart from './components/ShoppingCart'
+=======
+import Cart from './components/ShoppingCart';
+>>>>>>> Stashed changes
 
 function App() {
     return (

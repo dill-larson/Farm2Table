@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+<<<<<<< Updated upstream
 import Table from 'react-bootstrap/Table'
 
 const ShoppingCartList = ({products}) => {
@@ -17,6 +18,12 @@ const ShoppingCartList = ({products}) => {
             </thead>
         <tbody>
 
+=======
+
+const ShoppingCartList = ({products}) => {
+    return(
+        <div class = "rounded" style = {{backgroundColor: "#F9F8F9"}}>
+>>>>>>> Stashed changes
             {
             products.map((user,i) => {
             return (
@@ -29,6 +36,7 @@ const ShoppingCartList = ({products}) => {
                 distance={products[i].id}
                 stock={products[i].id}
                 />
+<<<<<<< Updated upstream
             );
              })
             }
@@ -60,6 +68,14 @@ const ShoppingCartList = ({products}) => {
     // }
     //      </div>
  );
+=======
+               
+            );
+        })
+    }
+         </div>
+    );
+>>>>>>> Stashed changes
 }
 
 export default ShoppingCartList;
