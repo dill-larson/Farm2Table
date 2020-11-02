@@ -8,6 +8,7 @@ import Marketplace from './components/Marketplace';
 import NavigationBar from './components/NavigationBar';
 import SignIn from './components/signin';
 import SignUp from './components/signup';
+import Cart from './components/ShoppingCart'
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/admin" exact component={AdminPanel}/>
                 <Route path="/signin" exact component={SignIn} />
                 <Route path="/signup" exact component={SignUp} />
+                <Route path="/cart" exact component={Cart} />
             </Switch>
         </Router>
     );

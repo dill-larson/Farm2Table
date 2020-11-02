@@ -6,19 +6,19 @@ import { Link } from 'react-router-dom';
 class NavigationBar extends Component {
     render() {
         return (
-            <Navbar collapseOnSelect  expand="md" style={{backgroundColor: "transparent"}}>
+            <Navbar collapseOnSelect  expand="md" style={{backgroundColor: "#F9F8F9"}}>
                 <Navbar.Toggle aria-controls="navbar-nav" /> {/*Responsive Navbar*/}
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link as={Link} to="/" className="text-main-brand">Home</Nav.Link>
                         <Nav.Link as={Link} to="/market" className="text-main-brand">Market</Nav.Link>
-                        <Nav.Link as={Link} to="/" className="text-main-brand">Market</Nav.Link>
                         <Nav.Link as={Link} to="/" className="text-main-brand">About Us</Nav.Link>
                         <Nav.Link as={Link} to="/" className="text-main-brand">Contact Us</Nav.Link>
                     </Nav>
                     <Nav className="navbar-right">
                         <Nav.Link as={Link} to="/signup" className="text-main-brand">Sign Up</Nav.Link>
                         <Nav.Link as={Link} to="/signin" className="text-main-brand">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/cart" className="text-main-brand">Cart</Nav.Link>
                     </Nav>
                     <Nav className="navbar-right-logged-in">
                         <NavDropdown title="{User Name}" drop="left" id="nav-profile">

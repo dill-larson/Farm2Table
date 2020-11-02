@@ -7,7 +7,7 @@ import farmland from '../images/dan-meyers-IQVFVH0ajag-unsplash.jpg';
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <div style={{backgroundColor: "#F9F8F9"}}>
                 <Jumbotron style={{marginBottom: "100px", backgroundImage: `url(${farmland})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", borderTopLeftRadius: "0rem", borderTopRightRadius: "0rem", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
                     <Container>
                         <div style={{marginBottom: "100px"}}>
@@ -23,7 +23,7 @@ export default class Home extends Component {
                         </div>
                         <div>
                             <CardDeck>
-                                <Card className="mb-4 mb-sm-4 mb-md-4 mb-lg-0">
+                                <Card className="mb-4 mb-sm-4 mb-md-4 mb-lg-0" style={{backgroundColor: "#F9F8F9"}}>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center">
                                         <Card.Title className="text-dark-shade text-center">Support Local Business</Card.Title>
@@ -32,7 +32,7 @@ export default class Home extends Component {
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
-                                <Card className="mb-4 mb-sm-4 mb-md-4 mb-lg-0">
+                                <Card className="mb-4 mb-sm-4 mb-md-4 mb-lg-0" style={{backgroundColor: "#F9F8F9"}}>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center">
                                         <Card.Title className="text-dark-shade text-center">Buy Directly From The Farm</Card.Title>
@@ -42,7 +42,7 @@ export default class Home extends Component {
                                     </Card.Body>
                                 </Card>
                                 <div className="w-100 d-none d-sm-block d-md-block d-lg-none">{/*Wrap every 2 cards on sm and md*/}</div>
-                                <Card className="mb-4 mb-sm-0">
+                                <Card className="mb-4 mb-sm-0" style={{backgroundColor: "#F9F8F9"}}>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center">
                                         <Card.Title className="text-dark-shade text-center">At Your Convenience</Card.Title>
@@ -53,7 +53,7 @@ export default class Home extends Component {
                                 </Card>
                                 <Card>
                                     <Card.Img variant="top" />
-                                    <Card.Body className="text-light-accent text-center">
+                                    <Card.Body className="text-light-accent text-center" style={{backgroundColor: "#F9F8F9"}}>
                                         <Card.Title className="text-dark-shade text-center">More Sustainable</Card.Title>
                                         <Card.Text>
                                             Cut the cost of moving your produce from grocery stores by delivering
