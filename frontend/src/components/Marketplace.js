@@ -34,10 +34,13 @@ class Marketplace extends React.Component{
         return !products.length ?
         <h1>Loading</h1> :
         (
-        <div className= "text-center"style= {{backgroundColor: "#1ABC56"}}>
+        <div className= "text-center" style= {{backgroundColor: "#1ABC56"}}>
             <Jumbotron style={{ backgroundColor: "#F9F8F9", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
             <h1 className="text-main-brand text-center font-weight-bold display-2"> Marketplace</h1>
-                <SearchBox searchChange={this.onSearchChange}/>
+            <div style= {{display: "flex", flexDirection:"row", justifyContent: "center", alignContent: "center"}}>
+            <p style= {{paddingTop:"13px"}}>Search Products:</p><SearchBox searchChange={this.onSearchChange}/>
+            </div>
+                
             </Jumbotron>
                 <ProductList products = {filteredProducts}/>
         </div>
