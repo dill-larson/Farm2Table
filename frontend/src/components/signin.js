@@ -2,11 +2,21 @@ import React /*,{useState, Component}*/ from "react";
 import { Card, Jumbotron} from 'react-bootstrap';
 import {useForm} from "react-hook-form";
 import {Link} from 'react-router-dom';
+import {auth} from "./firebase";
+
+
+const signInWithEmailAndPasswordHandler = (email, password) => {
+	auth.signInWithEmailAndPassword(email, password).catch(error => {
+		console.error("Error signing in with password and email", error);
+	});
+
+	console.log("Current user: "+auth.currentUser.displayName)
+};
 
 export default function SignIn()
 {
     const { register, handleSubmit, errors} = useForm();
-	const onSubmit = data => console.log(data); 
+	const onSubmit = data => signInWithEmailAndPasswordHandler(data.email, data.password)
 	
     return(
         <div style={{backgroundColor: '#1ABC56', width: '100%', height: '100%'}}>

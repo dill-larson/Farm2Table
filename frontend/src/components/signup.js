@@ -1,14 +1,25 @@
 import React /*,{useState, Component}*/ from "react";
 import { Card, Jumbotron} from 'react-bootstrap';
 import {useForm} from "react-hook-form";
+import {auth, generateUserDocument} from "./firebase";
 
 //Image defined
 //import farmland from '../images/dan-meyers-IQVFVH0ajag-unsplash.jpg';
 
+const createUserWithEmailAndPasswordHandler = async (email, password, displayName, role) => {
+	try{
+		const {user} = await auth.createUserWithEmailAndPassword(email, password);
+		await generateUserDocument(user, {displayName, role});
+	}
+	catch(error){
+		console.log(error);
+	}
+};
+
 export default function SignUp()
 {
     const { register, handleSubmit, errors} = useForm();
-    const onSubmit = data => console.log(data); 
+    const onSubmit = data => createUserWithEmailAndPasswordHandler(data.email, data.password, data.username, data.role);
 
     return(
 		<div style={{backgroundColor: '#1ABC56', width: '100%', height: '100%'}}>
