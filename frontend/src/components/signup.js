@@ -1,99 +1,210 @@
-import React /*,{useState, Component}*/ from "react";
-import { Button, Card, Col, Container, Form, Jumbotron, Row } from 'react-bootstrap';
-import { useForm } from "react-hook-form";
+import React, { Component } from "react";
+import { Button, Col, Container, Form, Jumbotron, Row } from 'react-bootstrap';
+import User from "../models/User";
 import { auth, generateUserDocument } from "./firebase";
 
-const createUserWithEmailAndPasswordHandler = async (email, password, displayName, role) => {
-	try{
-		const {user} = await auth.createUserWithEmailAndPassword(email, password);
-		await generateUserDocument(user, {displayName, role});
-	}
-	catch(error){
-		console.log(error);
-	}
-};
+export default class SignUp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            User: {
+                id: '',
+                displayName: '',
+                email: '',
+                role: '',
+                address1: '',
+                address2: '',
+                city: '',
+                state: '',
+                zip: ''
+            },
+            password: '',
+            confPassword: ''
+        };
+        this.onSubmit = this.onSubmit.bind(this);
+    }
 
-export default function SignUp()
-{
-    const { register, handleSubmit, errors} = useForm();
-    const onSubmit = data => createUserWithEmailAndPasswordHandler(data.email, data.password, data.username, data.role);
+    onSubmit() {
+        console.log(this.state);
+        this.createUser();
+    }
 
-    return(
-		<div style={{backgroundColor: "#1ABC56"}}>
-			<Jumbotron style={{backgroundColor: "#F9F8F9", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", borderTopLeftRadius: "0rem", borderTopRightRadius: "0rem", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
-				<h1 className="text-main-brand text-center font-weight-bold display-2">Sign Up</h1>
-			</Jumbotron>
-            <Container class="bg-white">
-                <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
-                    <Form>
-                        <Form.Group controlId="formName">
-                            <Form.Control type="text" placeholder="Name" class="border-0" />
-                        </Form.Group>
-                        <Form.Group controlId="formEmail">
-                            <Form.Control type="email" placeholder="Email Address" class="border-0" />
-                        </Form.Group>
-                        <Form.Group controlId="formPassword">
-                            <Form.Control type="password" placeholder="Password" class="border-0" />
-                        </Form.Group>
-                        <Form.Group controlId="formConfPassword">
-                            <Form.Control type="password" placeholder="Confirm Password" class="border-0" />
-                        </Form.Group>
+    createUser() {
+        //TODO
+    }
 
-                        <Form.Group controlId="formGridAddress1">
-                            <Form.Control placeholder="Street Address" />
-                        </Form.Group>
-                        <Form.Group controlId="formGridAddress2">
-                            <Form.Control placeholder="Apartment, studio, or floor" />
-                        </Form.Group>
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="formGridCity">
-                                <Form.Control placeholder="City"/>
-                            </Form.Group>
-                            <Form.Group as={Col} controlId="formGridState">
-                                <Form.Control as="select" defaultValue="State">
-                                    <option>State</option>
-                                    <option>AL</option>
-                                    <option>AK</option>
-                                    <option>AZ</option>
-                                    <option>AR</option>
-                                    <option>CA</option>
-                                    <option>CO</option>
-                                    <option>CT</option>
-                                    <option>DE</option>
-                                    <option>FL</option>
-                                    <option>...</option>
-                                </Form.Control>
-                            </Form.Group>
-                            <Form.Group as={Col} controlId="formGridZip">
-                                <Form.Control placeholder="Zip"/>
-                            </Form.Group>
-                        </Form.Row>
-
-                        <fieldset>
-                            <Form.Group as={Row}>
-                                <Form.Label as="legend" column sm={4}>
-                                    What type of user are you?
-                                </Form.Label>
-                                <Col sm={10}>
-                                    <Form.Check
-                                    type="radio"
-                                    label="Farmer"
-                                    name="roleRadios"
-                                    id="farmerRadio"
-                                    />
-                                    <Form.Check
-                                    type="radio"
-                                    label="Consumer"
-                                    name="roleRadios"
-                                    id="consumerRadio"
-                                    />
-                                </Col>
-                            </Form.Group>
-                        </fieldset>
-                        <Button variant="main-brand" type="submit" style={{width: "100%"}}>Sign Up</Button>
-                    </Form>
+    render() {
+        return(
+            <div style={{backgroundColor: "#1ABC56", paddingBottom: "10px"}}>
+                <Jumbotron style={{backgroundColor: "#F9F8F9", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", borderTopLeftRadius: "0rem", borderTopRightRadius: "0rem", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
+                    <h1 className="text-main-brand text-center font-weight-bold display-2">Sign Up</h1>
                 </Jumbotron>
-            </Container>
-		</div>
-    )
+                <Container class="bg-white">
+                    <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
+                        <Form className="mt-n4 mb-n4" onSubmit={(e) => {e.preventDefault(); this.onSubmit();}}>
+                            <Form.Group controlId="formName">
+                                <Form.Control 
+                                    type="text"
+                                    placeholder="Name"
+                                    value={this.state.User.displayName}
+                                    onChange={e => {
+                                            var tempUser = this.state.User;
+                                            tempUser.displayName = e.target.value; 
+                                            this.setState({ User: tempUser });
+                                        }}
+                                    class="border-0" 
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formEmail">
+                                <Form.Control 
+                                    type="email"
+                                    placeholder="Email Address"
+                                    value={this.state.User.email}
+                                    onChange={e => {
+                                            var tempUser = this.state.User;
+                                            tempUser.email = e.target.value; 
+                                            this.setState({ User: tempUser });
+                                        }}
+                                    class="border-0" 
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formPassword">
+                                <Form.Control 
+                                    type="password"
+                                    placeholder="Password" 
+                                    value={this.state.password}
+                                    onChange={e => this.setState({ password: e.target.value })}
+                                    class="border-0"
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formConfPassword">
+                                <Form.Control 
+                                    type="password"
+                                    placeholder="Confirm Password" 
+                                    value={this.state.confPassword}
+                                    onChange={e => this.setState({ confPassword: e.target.value })}
+                                    class="border-0"
+                                />
+                            </Form.Group>
+
+                            <Form.Group controlId="formGridAddress1">
+                                <Form.Control 
+                                    type="text"
+                                    placeholder="Street Address"
+                                    value={this.state.User.address1}
+                                    onChange={e => {
+                                            var tempUser = this.state.User;
+                                            tempUser.address1 = e.target.value; 
+                                            this.setState({ User: tempUser });
+                                        }}
+                                    class="border-0" 
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formGridAddress2">
+                                <Form.Control 
+                                    type="text"
+                                    placeholder="Apartment, studio, or floor"
+                                    value={this.state.User.address2}
+                                    onChange={e => {
+                                            var tempUser = this.state.User;
+                                            tempUser.address2 = e.target.value; 
+                                            this.setState({ User: tempUser });
+                                        }}
+                                    class="border-0" 
+                                />
+                            </Form.Group>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridCity">
+                                    <Form.Control 
+                                        type="text"
+                                        placeholder="City"
+                                        value={this.state.User.city}
+                                        onChange={e => {
+                                                var tempUser = this.state.User;
+                                                tempUser.city = e.target.value; 
+                                                this.setState({ User: tempUser });
+                                            }}
+                                        class="border-0" 
+                                    />
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridState">
+                                    <Form.Control 
+                                        as="select"
+                                        defaultValue="State"
+                                        value={this.state.User.state}
+                                        onChange={e => {
+                                                var tempUser = this.state.User;
+                                                tempUser.state = e.target.value; 
+                                                this.setState({ User: tempUser });
+                                            }}
+                                        class="border-0"
+                                    >
+                                            <option>State</option>
+                                            <option>AL</option>
+                                            <option>AK</option>
+                                            <option>AZ</option>
+                                            <option>AR</option>
+                                            <option>CA</option>
+                                            <option>CO</option>
+                                            <option>CT</option>
+                                            <option>DE</option>
+                                            <option>FL</option>
+                                            <option>...</option>
+                                    </Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Col} controlId="formGridZip">
+                                    <Form.Control 
+                                        type="text"
+                                        placeholder="Zip Code"
+                                        value={this.state.User.zip}
+                                        onChange={e => {
+                                                var tempUser = this.state.User;
+                                                tempUser.zip = e.target.value; 
+                                                this.setState({ User: tempUser });
+                                            }}
+                                        class="border-0" 
+                                    />
+                                </Form.Group>
+                            </Form.Row>
+
+                            <fieldset>
+                                <Form.Group>
+                                    <Form.Label className="text-muted">
+                                        What type of user are you?
+                                    </Form.Label>
+                                    <Form.Check
+                                        type="radio"
+                                        label="Farmer"
+                                        className="text-muted"
+                                        name="roleRadios"
+                                        id="farmerRadio"
+                                        value="Farmer"
+                                        onChange={e => {
+                                                var tempUser = this.state.User;
+                                                tempUser.role = e.target.value; 
+                                                this.setState({ User: tempUser });
+                                            }}
+                                    />
+                                    <Form.Check
+                                        type="radio"
+                                        label="Consumer"
+                                        className="text-muted"
+                                        name="roleRadios"
+                                        id="consumerRadio"
+                                        value="Consumer"
+                                        onChange={e => {
+                                                var tempUser = this.state.User;
+                                                tempUser.role = e.target.value; 
+                                                this.setState({ User: tempUser });
+                                            }}
+                                    />
+                                </Form.Group>
+                            </fieldset>
+                            <Button className="text-white" variant="main-brand" type="submit" style={{width: "100%"}}>Sign Up</Button>
+                        </Form>
+                    </Jumbotron>
+                </Container>
+            </div>
+        )
+    }
 }
