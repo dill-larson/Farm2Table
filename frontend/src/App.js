@@ -5,7 +5,7 @@ import './App.scss';
 import Home from './components/Home';
 import Marketplace from './components/Marketplace';
 import NavigationBar from './components/NavigationBar';
-import SignIn from './components/signin';
+import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Cart from './components/ShoppingCart';
 import UserProfile from './components/UserProfile';
