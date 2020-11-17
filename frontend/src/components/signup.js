@@ -26,12 +26,18 @@ export default class SignUp extends Component {
 
     onSubmit() {
         console.log(this.state);
-        this.createUser();
+        this.createUserWithEmailAndPasswordHandler(this.state.User.email, this.state.password, this.state.User.displayName, this.state.User.role);
     }
 
-    createUser() {
-        //TODO
-    }
+    createUserWithEmailAndPasswordHandler = async (email, password, displayName, role) => {
+        try{
+            const {user} = await auth.createUserWithEmailAndPassword(email, password);
+            await generateUserDocument(user, {displayName, role});
+        }
+        catch(error){
+            console.log(error);
+        }
+    };
 
     render() {
         return(
