@@ -1,18 +1,6 @@
 import React, { Component } from "react";
-import { Button, Col, Container, Form, Jumbotron, Row } from 'react-bootstrap';
+import { Button, Container, Form, Jumbotron } from 'react-bootstrap';
 import {auth} from "./firebase";
-
-
-// const signInWithEmailAndPasswordHandler = (email, password) => {
-// 	auth.signInWithEmailAndPassword(email, password).catch(error => {
-// 		console.error("Error signing in with password and email", error);
-// 	});
-
-// 	console.log("Current user: "+auth.currentUser.displayName)
-// };
-
-// const { register, handleSubmit, errors} = useForm();
-// const onSubmit = data => signInWithEmailAndPasswordHandler(data.email, data.password);
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -30,12 +18,18 @@ export default class SignIn extends Component {
 
     onSubmit() {
         console.log(this.state);
-        this.siginUser();
+        this.signInWithEmailAndPasswordHandler(this.state.User.email, this.state.password);
     }
 
-    siginUser() {
-        //TODO
-    }
+    signInWithEmailAndPasswordHandler = (email, password) => {
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                console.log("Logged in as: ", auth.currentUser.email)
+            })
+            .catch(error => {
+                console.error("Error signing in with password and email", error);
+            });
+    };
     
     render() {
         return(
