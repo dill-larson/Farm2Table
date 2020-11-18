@@ -54,3 +54,20 @@ function createUserData(user, userdata) {
 export async function signOut() {
     return await auth.signOut();
 }
+
+export async function signIn(email, password) {
+    const credential = await auth.signInWithEmailAndPassword(email, password)
+        .catch(error => {
+            return error;
+        });
+
+    if(credential.user !== undefined) { //Firebase Auth create user successfully
+        return new Promise((resolve, rejected) =>
+            resolve() //return empty promise on success
+        );
+    } else { //Firebase Auth ran into an error
+        return new Promise((resolve, rejected) => 
+            rejected(credential) //return error message from Firebase Auth
+        );
+    }
+}
