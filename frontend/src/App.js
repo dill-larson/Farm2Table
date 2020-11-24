@@ -9,7 +9,6 @@ import SignIn from './components/signin';
 import SignUp from './components/signup';
 import Cart from './components/ShoppingCart';
 import UserProfile from './components/UserProfile';
-import SignOut from './components/signout';
 
 class App extends Component{
     render ()
@@ -24,7 +23,6 @@ class App extends Component{
                     <Route path="/signin" exact component={SignIn}/>
                     <Route path="/signup" exact component={SignUp}/>
                     <Route path="/cart" exact component={Cart}/>
-                    <Route path="/signout" exact component={SignOut}/>
                 </Switch>
             </Router>
         );
