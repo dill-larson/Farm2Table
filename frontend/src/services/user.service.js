@@ -71,3 +71,15 @@ export async function signIn(email, password) {
         );
     }
 }
+
+export async function getUserByUID(uid) {
+    const userRef = firestore.doc(`users/${uid}`);
+
+    return userRef.get()
+        .then(docSnap => {
+            return docSnap.data();
+        })
+        .catch(error => {
+            return error;
+        });
+}
