@@ -1,0 +1,613 @@
+{
+	"info": {
+		"_postman_id": "62938eea-aca1-47a4-b2b7-7bd37541f87e",
+		"name": "Testing For FarmToTable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "uploadOrder1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4afa0f1e-10e4-41ce-9e12-d8ceb78c0ca5",
+						"exec": [
+							"pm.test('test1', function() {",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\",\n\t\"total\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/uploadOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"uploadOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadOrder2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4afa0f1e-10e4-41ce-9e12-d8ceb78c0ca5",
+						"exec": [
+							"pm.test('test1', function() {",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\",\n\t\"total\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/uploadOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"uploadOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadOrder3(missingRequest)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4afa0f1e-10e4-41ce-9e12-d8ceb78c0ca5",
+						"exec": [
+							"pm.test('test1', function() {",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/uploadOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"uploadOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FarmTesting3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07a5056d-584f-40c5-868a-5f47f347c382",
+						"exec": [
+							"pm.test('checking Uploading Farm', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": \" 10\",\n        \"farmer\": \"kim\",\n        \"name\": \"Pepperidge Farm\",\n        \"description\": \"good stuffs selling\",\n        \"location\": \"1403 Sean ave San Jose, 234\",\n        \"geopoint\": \"San Jose\",\n        \"rating\": \"1\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/uploadFarm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"uploadFarm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FarmTesting1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46dc1a47-0b08-4514-963c-76d83efc42f1",
+						"exec": [
+							"pm.test('checking Uploading Farm', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": \" 30\",\n        \"farmer\": \"kim\",\n        \"name\": \"Pepperidge Farm\",\n        \"description\": \"good stuffs selling\",\n        \"location\": \"1403 Sean ave San Jose, 234\",\n        \"geopoint\": \"San Jose\",\n        \"rating\": \"1\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/uploadFarm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"uploadFarm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FarmTesting2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fa27a7e-e4e5-4f9a-a86e-c4280348c399",
+						"exec": [
+							"pm.test('checking Uploading Farm', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": \" 20\",\n        \"farmer\": \"kim\",\n        \"name\": \"Pepperidge Farm\",\n        \"description\": \"good stuffs selling\",\n        \"location\": \"1403 Sean ave San Jose, 234\",\n        \"geopoint\": \"San Jose\",\n        \"rating\": \"1\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/uploadFarm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"uploadFarm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GettingAllFarms1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "379cdc2e-0e14-442b-a56b-ec38b6d5fed9",
+						"exec": [
+							"pm.test('checking getting All Farms', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\",\n\t\"total\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/getAllFarms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getAllFarms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GettingAllFarms2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0165ef8-f2a7-497b-b28d-49186019b23a",
+						"exec": [
+							"pm.test('checking getting All Farms', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\",\n\t\"total\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/getAllFarms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getAllFarms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GettingAllFarms3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bcc69e55-edcc-40ad-a3a8-dd79e4f1b109",
+						"exec": [
+							"pm.test('checking getting All Farms', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\",\n\t\"total\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/getAllFarms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getAllFarms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ImageUploadingWith_bigfile(Has to fail)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff000e85-8052-46b7-87ae-130633a9a81f",
+						"exec": [
+							"pm.test('this one has to fail', function() {",
+							"    pm.response.to.have.status(500);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/wonyoungkim/Desktop/BBBBFruit.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/upload-image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"upload-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ImageUploadingWith_txt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32f09501-c4df-42a8-8791-8e436f69417e",
+						"exec": [
+							"pm.test('this one has to fail', function() {",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/wonyoungkim/Desktop/1000.tkjhxt.txt"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/upload-image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"upload-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ImageUploadingWith_jpeg",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1931b2c9-b378-4711-9cbd-b9cc646e768b",
+						"exec": [
+							"pm.test('pass', function() {",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/wonyoungkim/Desktop/AAAAAAFruit.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/upload-image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"upload-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GettingAllFarms",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "614a2b52-d50b-4837-9aba-76bd4437c0e0",
+						"exec": [
+							"pm.test('pass', function() {",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"customer\": \"Queen\",\n\t\"orderDate\": \"2020-11-02T15:34:55\",\n\t\"shippingAdr\": \"34r Golf Ave San jose, 93453\",\n\t\"total\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/getAllFarms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getAllFarms"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
