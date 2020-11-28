@@ -13,6 +13,7 @@ export default class NavigationBar extends Component {
         this.state = {
             user: null, //Firebase Auth user obj
             userdata: { //Firestore user document
+                id: '',
                 displayName: '',
                 role: '',
                 address1: '',
@@ -55,9 +56,9 @@ export default class NavigationBar extends Component {
 
     render() {
         const {referrer} = this.state;
-        if (referrer) { //successfully login
+        if (referrer) { //sign out => redirect to home
             return <Redirect to={referrer} />;
-        } else { 
+        } else { //successful login
             return (
                 <Navbar collapseOnSelect  expand="md" style={{backgroundColor: "#F9F8F9"}}>
                     <Navbar.Toggle aria-controls="navbar-nav" /> {/*Responsive Navbar*/}
@@ -78,12 +79,11 @@ export default class NavigationBar extends Component {
                                 <NavDropdown 
                                     title={
                                         <span className="text-main-brand">{this.state.user.email}</span>
-                                        
                                     }
                                     drop="left" 
                                     id="nav-profile"
                                 >
-                                    <NavDropdown.Item as={Link} to="/profile">
+                                    <NavDropdown.Item as={Link} to={`/profile/${this.state.user.uid}`}>
                                         <span className="text-main-brand">Profile</span>
                                     </NavDropdown.Item> {/*Shows on both farmers and consumers*/}
                                     { /*Shows only for farmers*/
