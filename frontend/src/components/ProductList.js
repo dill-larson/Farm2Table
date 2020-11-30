@@ -6,20 +6,20 @@ const ProductList = ({products}) => {
         <div>
             {
             products.map((user,i) => {
-            return (
-                <ProductCard 
-                key={products[i].id} 
-                id={products[i].id} 
-                name={products[i].name} 
-                price={products[i].id}
-                farm={products[i].name}
-                distance={products[i].id}
-                stock={products[i].id}
-                />
-            );
-        })
-    }
-         </div>
+                return (
+                    <ProductCard 
+                        id={products[i].id} 
+                        name={products[i].name} 
+                        price={products[i].price}
+                        farm={products[i].farm}
+                        distance={products[i].proximity}
+                        stock={products[i].quantity}
+                        image={products[i].image}
+                    />
+                );
+            })
+            }
+        </div>
     );
 }
 
