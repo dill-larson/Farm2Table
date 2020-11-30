@@ -4,7 +4,7 @@ import 'tachyons';
 const ProductCard = ({id,name, farm, distance,stock, price,image}) => {
     return(
         <div style = {{backgroundColor: "#F9F8F9" }}className= 'grow dib br3 pa3 ma2 bw3 shadow-5'>
-            <img alt='products' src='image' className='br3'/>
+            <img alt='products' src={image} width= {300} height={250} className=''/>
             <div>
                 <p style={{backgroundColor:"#D08737"}} className = "text-light-shade br3">{stock} left</p>
                 <h2> {name}</h2>

@@ -14,7 +14,7 @@ const ProductList = ({products}) => {
                         farm={products[i].farm}
                         distance={products[i].proximity}
                         stock={products[i].quantity}
-                        image={products[i].image}
+                        image={products[i].picture}
                     />
                 );
             })
