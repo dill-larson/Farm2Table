@@ -1,5 +1,5 @@
 import React from 'react';
-import 'tachyons';
+
 
 const ProductCard = ({id,name, farm, distance,stock, price,image}) => {
     return(
