@@ -17,6 +17,7 @@ export async function createProduct(farm, product) {
 
     const data = {
         name: product.name,
+        picture: "https://imagizer.imageshack.com/v2/607x607q90/923/CBcDao.png",
         quantity: product.quantity,
         description: product.description,
         price: product.price,
