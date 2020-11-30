@@ -27,7 +27,8 @@ export default class Home extends Component {
                                 <Card className="mb-4 mb-sm-4 mb-md-4 mb-lg-0" style={{backgroundColor: "#F9F8F9"}}>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center">
-                                        <Card.Title className="text-dark-shade text-center">Support Local Business</Card.Title>
+                                        <Card.Title className="text-dark-shade text-center"  style= {{height:40}}>Support Local Business</Card.Title>
+                                        <img src={"https://imagizer.imageshack.com/v2/550x550q90/924/MdVDK3.png"}/>
                                         <Card.Text>
                                             Browse your local farms and support the smaller businesses around you!
                                         </Card.Text>
@@ -36,7 +37,8 @@ export default class Home extends Component {
                                 <Card className="mb-4 mb-sm-4 mb-md-4 mb-lg-0" style={{backgroundColor: "#F9F8F9"}}>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center">
-                                        <Card.Title className="text-dark-shade text-center">Buy Directly From The Farm</Card.Title>
+                                        <Card.Title className="text-dark-shade text-center"style= {{height:40}}>Buy Directly From The Farm</Card.Title>
+                                        <img src={"https://imagizer.imageshack.com/v2/550x550q90/923/CBcDao.png"}/>
                                         <Card.Text>
                                             Buy your produce from your trusted businesses directly from them.
                                         </Card.Text>
@@ -46,7 +48,8 @@ export default class Home extends Component {
                                 <Card className="mb-4 mb-sm-0" style={{backgroundColor: "#F9F8F9"}}>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center">
-                                        <Card.Title className="text-dark-shade text-center">At Your Convenience</Card.Title>
+                                        <Card.Title className="text-dark-shade text-center"style= {{height:40}}>At Your Convenience</Card.Title>
+                                        <img src={"https://imagizer.imageshack.com/v2/550x550q90/924/m8tDIj.png"}/>
                                         <Card.Text>
                                             Buy on your schedule from the comfort of your home.
                                         </Card.Text>
@@ -55,7 +58,8 @@ export default class Home extends Component {
                                 <Card>
                                     <Card.Img variant="top" />
                                     <Card.Body className="text-light-accent text-center" style={{backgroundColor: "#F9F8F9"}}>
-                                        <Card.Title className="text-dark-shade text-center">More Sustainable</Card.Title>
+                                        <Card.Title className="text-dark-shade text-center"style= {{height:40}}>More Sustainable</Card.Title>
+                                        <img src={"https://imagizer.imageshack.com/v2/550x550q90/922/ilGHPx.png"}/>
                                         <Card.Text>
                                             Cut the cost of moving your produce from grocery stores by delivering
                                             it directly from the farm to your home.
@@ -117,6 +121,7 @@ export default class Home extends Component {
                             </div>
                         </Col>
                     </Row>
+                    <div style= {{height:100}}></div>
                 </Container>
             </div>
         )
