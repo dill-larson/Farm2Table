@@ -2,7 +2,7 @@ import React from 'react';
 import 'tachyons';
 import Table from 'react-bootstrap/Table'
 
-const ProductCard = ({id,name, farm, distance,stock, price}) => {
+const ProductCard = ({id,name, farm, distance, stock, price}) => {
     return(
             <tr>
                 <td> <p>{id}</p></td>

@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="579e8d20-621e-45c7-8b29-7934ccd55959" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/NavigationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NavigationBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/cart.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CartItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CartItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShoppingCart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShoppingCartList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShoppingCartList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="044b5283-a1bd-4b88-9888-9f6c0d3261aa" />
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -109,6 +108,7 @@
       <workItem from="1603592239829" duration="1355000" />
       <workItem from="1604271468010" duration="15953000" />
       <workItem from="1604302529128" duration="10331000" />
+      <workItem from="1606531094719" duration="14827000" />
     </task>
     <servers />
   </component>
@@ -128,6 +128,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="553" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606531143581">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="553" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.954@0.23.1680.954" timestamp="1606531143581" />
     <state x="578" y="250" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604341903846">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
@@ -136,9 +140,10 @@
       <screen x="0" y="23" width="1680" height="947" />
     </state>
     <state x="349" y="135" key="SettingsEditor/0.23.1680.947@0.23.1680.947" timestamp="1604275318580" />
-    <state x="541" y="129" width="638" height="735" key="find.popup" timestamp="1604341929174">
-      <screen x="0" y="23" width="1680" height="947" />
+    <state x="541" y="130" width="638" height="741" key="find.popup" timestamp="1606605606964">
+      <screen x="0" y="23" width="1680" height="954" />
     </state>
     <state x="541" y="129" width="638" height="735" key="find.popup/0.23.1680.947@0.23.1680.947" timestamp="1604341929174" />
+    <state x="541" y="130" width="638" height="741" key="find.popup/0.23.1680.954@0.23.1680.954" timestamp="1606605606964" />
   </component>
 </project>
