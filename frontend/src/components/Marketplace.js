@@ -4,7 +4,7 @@ import SearchBox from './SearchBox';
 import { Jumbotron} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { firestore } from "../components/firebase";
+import { getProducts } from '../services/product.service';
 
 class Marketplace extends React.Component{
     constructor(){
@@ -16,25 +16,24 @@ class Marketplace extends React.Component{
     }
     
     componentDidMount(){
-        
-        // fetch('https://jsonplaceholder.typicode.com/users')
-        // .then(response=> response.json())
-        // .then(users => this.setState({products: users}));
-        let data = [];
-        var query = firestore.collectionGroup("products").get().then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                    data.push(doc.data());
-                }
-                );
-            }
-            ).then(this.setState({products:data}));
-       //console.log(this.state.products);
-        //console.log(data);
+        getProducts()
+            .then(queryDocSnapshots => {
+                console.log("QueryDocSnap", queryDocSnapshots);
+                let data = [];
+                queryDocSnapshots.map((product) => {
+                    data.push(product.data());
+                })
+                this.setState({products: data});
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     onSearchChange = (event) => {
         this.setState({searchfield: event.target.value})
     }
+
     render(){
         console.log(this.state.products);
         console.log(this.state.products.length);
