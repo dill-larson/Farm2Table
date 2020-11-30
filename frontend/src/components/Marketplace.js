@@ -47,7 +47,7 @@ class Marketplace extends React.Component{
                         <p style= {{paddingTop:"13px"}}>Search Products:</p><SearchBox searchChange={this.onSearchChange}/>
                     </div>
                 </Jumbotron>
-                <Container>
+                <Container className="text-center">
                     <ProductList products = {filteredProducts}/>
                 </Container>
             </div>
