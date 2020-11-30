@@ -39,6 +39,7 @@ class Marketplace extends React.Component{
         });
         return !products.length ?
         <h1 style={{display: "flex", flexDirection:"row", justifyContent: "center", alignContent: "center"}}>Loading</h1> :
+
         ( 
             <div style= {{backgroundColor: "#1ABC56", paddingBottom: "10px"}}>
                 <Jumbotron style={{backgroundColor: "#F9F8F9", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", borderTopLeftRadius: "0rem", borderTopRightRadius: "0rem", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem"}}>
