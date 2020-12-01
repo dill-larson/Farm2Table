@@ -32,3 +32,16 @@ export async function getCartItems(user) {
             return error;
         });
 }
+
+/*
+ * Deletes item from cart
+ * @user: Firebase Auth user
+ * @itemId: id of item data
+ * return Promise
+ */
+export async function deleteCartItem(user, itemId) {
+    console.log(itemId);
+    const cartRef = firestore.doc(`carts/${user.uid}/items/${itemId}`);
+
+    //return cartRef.delete();
+}
