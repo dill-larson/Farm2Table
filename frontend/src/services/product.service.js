@@ -130,3 +130,4 @@ export async function sendToCart(productId, name, quantity, farm,price) {
     };
 
     return cartRef.set(item, {merge: true});
+}
