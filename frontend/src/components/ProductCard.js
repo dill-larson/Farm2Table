@@ -8,7 +8,7 @@ import { auth } from "./firebase";
 
 const ProductCard = ({id,name, farm, distance,stock, price,image}) => {
     function addToCart(){
-        let quantity = 0;
+        let quantity = 1;
         if(auth?.currentUser) {sendToCart(id,name, quantity, farm,price)} else {console.log("You need to be logged in")};
         
     }
