@@ -1,7 +1,17 @@
 import React from 'react';
 
+import 'tachyons';
+import { sendToCart } from '../services/product.service';
+import { auth } from "./firebase";
+
+
 
 const ProductCard = ({id,name, farm, distance,stock, price,image}) => {
+    function addToCart(){
+        let quantity = 0;
+        if(auth?.currentUser) {sendToCart(id,name, quantity, farm,price)} else {console.log("You need to be logged in")};
+        
+    }
     return(
         <div style = {{backgroundColor: "#F9F8F9" }}className= 'grow dib br3 pa3 ma2 bw3 shadow-5'>
             <img alt='products' src={image} width= {300} height={250} className=''/>
@@ -9,10 +19,9 @@ const ProductCard = ({id,name, farm, distance,stock, price,image}) => {
             <div>
                 <p style={{backgroundColor:"#D08737"}} className = "text-light-shade br3">{stock} left</p>
                 <h2> {name}</h2>
-                <p> {farm} farm</p>
-                <p>{distance} miles from you</p>
+                <p> {farm}</p>
                 <p>${price}</p>
-                <button className="btn btn-success" id="addToCart">Add To Cart</button>
+                <button onClick={addToCart} className="btn btn-success" id="addToCart">Add To Cart</button>
             </div>
         </div>
     )
