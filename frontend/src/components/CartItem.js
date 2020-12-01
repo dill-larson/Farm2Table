@@ -11,7 +11,7 @@ const ProductCard = ({id, name, quantity, price}) => {
             <td> 
                 <h5 className="text-main-brand">{name}</h5>
             </td>
-            <td>
+            <td className="text-right">
                 <p>${price}</p>
             </td>
             <td>

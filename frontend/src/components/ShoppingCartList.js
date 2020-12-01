@@ -10,7 +10,7 @@ const ShoppingCartList = ({products}) => {
                     <tr style= {{color:"#E09866"}}>
                         <th>Quantity</th>
                         <th>Product</th>
-                        <th>Price</th>
+                        <th className="text-right">Price</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -30,7 +30,7 @@ const ShoppingCartList = ({products}) => {
                     }
                     <td></td>
                     <td></td>
-                    <td>${calculateTotal(products)}</td>
+                    <td className="text-right"><b>Total:</b> ${calculateTotal(products)}</td>
                     <td></td>
                 </tbody>
             </Table>
