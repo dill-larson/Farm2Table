@@ -9,6 +9,10 @@ import SignIn from './components/signin';
 import SignUp from './components/signup';
 import Cart from './components/ShoppingCart';
 import UserProfileSecurity from './components/UserProfile';
+import FarmPanel from './components/FarmPanel';
+import FarmProfileSecurity from './components/FarmProfile';
+import FarmCreate from './components/FarmCreate';
+import ProductProfileSecurity from './components/ProductProfile';
 
 class App extends Component{
     render ()
@@ -22,6 +26,10 @@ class App extends Component{
                     <Route path="/profile/:id">
                         <UserProfileSecurity />
                     </Route>
+                    <Route path="/create-farm" exact component={FarmCreate}/>
+                    <Route path="/farms" exact component={FarmPanel}/>
+                    <Route path="/farm/:id" component={FarmProfileSecurity}/>
+                    <Route path="/farm-/:id/product/:productid" component={ProductProfileSecurity}/>
                     <Route path="/signin" exact component={SignIn}/>
                     <Route path="/signup" exact component={SignUp}/>
                     <Route path="/cart" exact component={Cart}/>

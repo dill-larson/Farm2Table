@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import { auth, firestore } from "../components/firebase";
+import { createUserCart } from "./cart.service";
 
 /*
  * Creates new user account within Firebase Auth and Firestore
@@ -44,6 +45,8 @@ function createUserData(user, userdata) {
         address: address,
         role: userdata.role
     }
+
+    createUserCart(user);
 
     return userRef.set(data);
 }

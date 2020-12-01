@@ -88,7 +88,7 @@ export default class NavigationBar extends Component {
                                     </NavDropdown.Item> {/*Shows on both farmers and consumers*/}
                                     { /*Shows only for farmers*/
                                         this.state.userdata?.role == "Farmer" && (
-                                        <NavDropdown.Item as={Link} to="/">
+                                        <NavDropdown.Item as={Link} to="/farms">
                                             <span className="text-main-brand">Farms</span>
                                         </NavDropdown.Item> 
                                     )}

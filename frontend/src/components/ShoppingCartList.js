@@ -19,16 +19,16 @@ const ShoppingCartList = ({products}) => {
 
 
             {
-            products.map((user,i) => {
+            products.map(product => {
             return (
                 <CartItem 
-                key={products[i].id} 
-                id={products[i].id} 
-                name={products[i].name} 
-                price={products[i].id}
-                farm={products[i].name}
-                distance={products[i].id}
-                stock={products[i].id}
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.id}
+                farm={product.name}
+                distance={product.id}
+                stock={product.id}
                 />
 
             );

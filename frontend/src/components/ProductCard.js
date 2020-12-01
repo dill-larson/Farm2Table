@@ -1,7 +1,10 @@
 import React from 'react';
+
 import 'tachyons';
 import { sendToCart } from '../services/product.service';
 import { auth } from "./firebase";
+
+
 
 const ProductCard = ({id,name, farm, distance,stock, price,image}) => {
     function addToCart(){
