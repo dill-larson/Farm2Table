@@ -28,10 +28,22 @@ const ShoppingCartList = ({products}) => {
                             );
                         })
                     }
+                    <td></td>
+                    <td></td>
+                    <td>${calculateTotal(products)}</td>
+                    <td></td>
                 </tbody>
             </Table>
         </div> 
     );
+}
+
+function calculateTotal(products) {
+    let total = 0;
+    products.map(product => {
+        total += parseFloat(product.price);
+    });
+    return total.toFixed(2);
 }
 
 export default ShoppingCartList;
