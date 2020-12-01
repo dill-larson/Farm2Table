@@ -223,9 +223,11 @@ class FarmProfile extends Component {
                         {
                             this.state.products.map(product => {
                                 return (
-                                <Link to={`/farm-/${this.state.farm.id}/product/${product.id}`}>
-                                    <Button className="text-white" variant="main-brand" type="button" style={{width: "100%"}}>{product.name}</Button>
-                                </Link>
+                                <div className="mt-2">
+                                    <Link to={`/farm-/${this.state.farm.id}/product/${product.id}`}>
+                                        <Button className="text-white" variant="main-brand" type="button" style={{width: "100%"}}>{product.name}</Button>
+                                    </Link>
+                                </div>
                                 );
                             })
                         }
