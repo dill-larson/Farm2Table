@@ -16,18 +16,19 @@ export async function createUserCart(user) {
     cartRef.set(data);
 }
 
-export async function getCartProductDocs(uid) {
-    const cartsRef = firestore.collection('carts');
-    return cartsRef.where('user', '==', uid).limit(1).get().then( (querySnapshot) => {
-            if (querySnapshot.empty) {
-                console.log('Empty cart.');
-                return [];
-            }
+/*
+ * Get all items in cart for user
+ * @user: Firebase Auth user
+ * return Promise
+ */
+export async function getCartItems(user) {
+    const cartRef = firestore.collection(`carts/${user.uid}/items`);
 
-            return querySnapshot.docs[0].data().items;
-        }
-    )
-    .catch(error => {
-        return error;
-    });
+    return cartRef.get()
+        .then(querySnapshot => {
+            return querySnapshot.docs;
+        })
+        .catch(error => {
+            return error;
+        });
 }
