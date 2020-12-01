@@ -119,11 +119,10 @@ export async function deleteProduct(farmid, product) {
     return productRef.delete();
 
 }
-export async function sendToCart(productId, name, quantity, farm,price) {
+export async function sendToCart(productId, name, quantity, price) {
     const cartRef = firestore.doc(`carts/${auth.currentUser.uid}/items/${productId}`);
     var item = {
         name: name,
-        farm: farm,
         price: price,
         quantity: quantity,
         id: productId
