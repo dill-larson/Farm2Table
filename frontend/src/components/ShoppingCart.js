@@ -4,7 +4,7 @@ import { Jumbotron} from 'react-bootstrap';
 import ShoppingCartList from './ShoppingCartList'
 import Checkout from './Checkout';
 import {auth} from "./firebase";
-import {getCartProductDocs} from "../services/cart.service";
+import { getCartItems } from "../services/cart.service";
 
 
 class ShoppingCart extends React.Component{
@@ -17,29 +17,18 @@ class ShoppingCart extends React.Component{
         }
     }
 
-    async getCartUserProducts(uid) {
-        return getCartProductDocs(uid).then(productDocRefs => {
-            let productData = [];
-            productDocRefs.map(productRef => {
-                productRef.get().then(docSnap => {
-                    productData.push(docSnap.data());
-                });
-            });
-            return productData;
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
-
     componentDidMount(){
-        this.getCartUserProducts(auth.currentUser.uid)
-        .then(prods => {
-            this.setState({products: prods});
-        })
-        .catch(error => {
-            console.log(error);
-        })
+        getCartItems(auth?.currentUser)
+            .then(queryDocSnapshots => {
+                let data = [];
+                queryDocSnapshots.map((product) => {
+                    data.push(product.data());
+                })
+                this.setState({products: data});
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     render(){
