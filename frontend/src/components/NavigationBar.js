@@ -70,6 +70,7 @@ export default class NavigationBar extends Component {
                         <Navbar.Collapse id="navbar-nav">
                             <Nav className="mr-auto">
                                 <Nav.Link as={Link} to="/" className="text-main-brand">Home</Nav.Link>
+                                <Nav.Link as={Link} to="/welcome" className="text-main-brand">Welcome</Nav.Link>
                                 <Nav.Link as={Link} to="/market" className="text-main-brand">Marketplace</Nav.Link>
                             </Nav>
                             {!this.state.user && (

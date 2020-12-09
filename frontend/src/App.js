@@ -13,6 +13,7 @@ import FarmPanel from './components/FarmPanel';
 import FarmProfileSecurity from './components/FarmProfile';
 import FarmCreate from './components/FarmCreate';
 import ProductProfileSecurity from './components/ProductProfile';
+import Welcome from './components/Welcome';
 
 class App extends Component{
     render ()
@@ -23,6 +24,7 @@ class App extends Component{
                 <Switch>
                     <Route path="/" exact component={() => <Home/>}/>
                     <Route path="/market" exact component={() => <Marketplace/>}/>
+                    <Route path="/welcome" exact component={Welcome}/>
                     <Route path="/profile/:id">
                         <UserProfileSecurity />
                     </Route>
