@@ -34,14 +34,29 @@ export async function getCartItems(user) {
 }
 
 /*
+ * Updates item within cart
+ * @user: Firebase Auth user
+ * @itemId: id of item data
+ * return Promise
+ */
+export async function updateCartItem(user, itemId, quantity) {
+    const cartRef = firestore.doc(`carts/${user.uid}/items/${itemId}`);
+
+    const data = {
+        quantity: quantity
+    }
+
+    return cartRef.set(data, {merge: true}); //merge: doesn't affect any data/information not in data variable above
+}
+
+/*
  * Deletes item from cart
  * @user: Firebase Auth user
  * @itemId: id of item data
  * return Promise
  */
 export async function deleteCartItem(user, itemId) {
-    console.log(itemId);
     const cartRef = firestore.doc(`carts/${user.uid}/items/${itemId}`);
 
-    //return cartRef.delete();
+    return cartRef.delete();
 }
