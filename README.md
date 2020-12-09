@@ -6,7 +6,7 @@ For both farmers and consumers who need a convenient marketplace to buy and sell
 
 To setup a development environment clone the git repo to your local computer with `git clone https://github.com/dill-larson/2020-fall-cs160-team-pikachu.git`
 
-## Installing Depencies
+### Installing Depencies
 
 Navigate to the frontend with `cd frontend` and follow the steps below.
 
@@ -15,9 +15,23 @@ Navigate to the frontend with `cd frontend` and follow the steps below.
 3. Run `npm install node-sass`
 4. Run `npm install cypress --save-dev`
 
-## Run the project
+### Run the project
 
 1. Navigate to the frontend with `cd frontend`
 2. Run `npm start`
 3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Branch Format
+
+Branches are separated into two categories: frontend and backend and further categorized by feature or bugfix.<br/>
+
+Features:
+
+- f-frontend-[feature_name]
+- f-backend-[feature_name]
+
+Bugfixes:
+
+- b-frontend-[bugfix_name]
+- b-backend-[bugfix_name]
 
