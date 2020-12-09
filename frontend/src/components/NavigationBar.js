@@ -49,10 +49,10 @@ export default class NavigationBar extends Component {
         signOut()
             .then(() => {
                 console.log("Successfully logged out.");
-                this.setState({referrer: "/"}); //redirect users to homepage
+                //this.setState({referrer: "/"}); //redirect users to homepage
             })
             .catch(error => {
-                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
+                //this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             });
     }
 
