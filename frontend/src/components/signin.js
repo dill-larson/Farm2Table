@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Container, Form, Jumbotron } from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
 import { signIn } from "../services/user.service";
+import ErrorAlert from "./ErrorAlert";
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -13,25 +14,25 @@ export default class SignIn extends Component {
                 email: ''
             },
             password: '',
-            referrer: null
+            referrer: null,
+            error: null
         };
         this.onSubmit = this.onSubmit.bind(this);
     }
 
     onSubmit() {
-        console.log(this.state);
         signIn(this.state.User.email, this.state.password)
             .then(() => {
-                console.log("Successfully logged in!");
                 this.setState({referrer: "/market"});
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             });
     }
     
     render() {
         const {referrer} = this.state;
+        const {error} = this.state;
         if (referrer) { //successfully login
             return <Redirect to={referrer} />;
         } else { 
@@ -43,6 +44,7 @@ export default class SignIn extends Component {
                     <Container>
                         <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
                             <Form className="mt-n4 mb-n4" onSubmit={(e) => {e.preventDefault(); this.onSubmit();}}>
+                                {error}
                                 <Form.Group controlId="formEmail">
                                     <Form.Control 
                                         type="email"

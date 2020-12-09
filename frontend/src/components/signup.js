@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Col, Container, Form, Jumbotron } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { createUser } from "../services/user.service";
+import ErrorAlert from "./ErrorAlert";
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -20,7 +21,8 @@ export default class SignUp extends Component {
             },
             password: '',
             confPassword: '',
-            referrer: null
+            referrer: null,
+            error: null
         };
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -33,15 +35,16 @@ export default class SignUp extends Component {
                     this.setState({referrer: "/market"});
                 })
                 .catch(error => {
-                    console.log(error);
+                    this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
                 });
         } else {
-            console.log("Password mismatch");
+            this.setState({error: <ErrorAlert code="Password Mismatch" message="Make sure your passwords match."/>});
         }
     }
 
     render() {
         const {referrer} = this.state;
+        const {error} = this.state;
         if (referrer) { //successfully creation of account
             return <Redirect to={referrer} />;
         } else { 
@@ -53,6 +56,7 @@ export default class SignUp extends Component {
                     <Container>
                         <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
                             <Form className="mt-n4 mb-n4" onSubmit={(e) => {e.preventDefault(); this.onSubmit();}}>
+                                {error}
                                 <Form.Group controlId="formName">
                                     <Form.Control 
                                         type="text"

@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { getFarmsByFarmer } from '../services/farm.service';
 import { auth } from './firebase';
 import FarmList from './FarmList';
+import ErrorAlert from './ErrorAlert';
 
 export default class FarmPanel extends Component {
     constructor(){
         super()
         this.state = {
-            farms: []
+            farms: [],
+            error: null
         }
     }
     
@@ -23,11 +25,12 @@ export default class FarmPanel extends Component {
                 this.setState({farms: data});
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
     
     render() {
+        const {error} = this.state;
         if(this.state.farms.length <= 0) {
             return (
                 <div style= {{backgroundColor: "#1ABC56", paddingBottom: "10px"}}>
@@ -35,6 +38,7 @@ export default class FarmPanel extends Component {
                         <h1 className=" text-center text-main-brand font-weight-bold display-2">Your Farms</h1>
                     </Jumbotron>
                     <Container>
+                        {error}
                         <Link to="/create-farm">
                             <Button className="text-white" variant="main-brand" style={{width: "100%"}}>Add Farm</Button>
                         </Link>
@@ -61,6 +65,7 @@ export default class FarmPanel extends Component {
                         <h1 className=" text-center text-main-brand font-weight-bold display-2">Your Farms</h1>
                     </Jumbotron>
                     <Container>
+                        {error}
                         <Link to="/create-farm">
                             <Button className="text-white" variant="main-brand" style={{width: "100%"}}>Add Farm</Button>
                         </Link>

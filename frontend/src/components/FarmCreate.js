@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Jumbotron } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { auth } from './firebase';
 import { createFarm } from '../services/farm.service';
+import ErrorAlert from './ErrorAlert';
 
 export default class FarmCreate extends Component {
     constructor(props) {
@@ -19,7 +20,8 @@ export default class FarmCreate extends Component {
                 state: '',
                 zip: ''
             },
-            referrer: null
+            referrer: null,
+            error: null
         };
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -27,16 +29,16 @@ export default class FarmCreate extends Component {
     onSubmit() {
         createFarm(auth.currentUser, this.state.farm)
             .then(farm => {
-                console.log("Create farm successfully", farm);
                 this.setState({referrer: `/farm/${farm.id}`})
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 
     render() {
         const {referrer} = this.state;
+        const {error} = this.state;
         if (referrer) { //successfully creation of farm
             return <Redirect to={referrer} />;
         } else { 
@@ -48,6 +50,7 @@ export default class FarmCreate extends Component {
                     <Container>
                         <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
                             <Form className="mt-n4 mb-n4" onSubmit={(e) => {e.preventDefault(); this.onSubmit();}}>
+                                {error}
                                 <Form.Group controlId="formFarmName">
                                     <Form.Control 
                                         type="text"

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import ProductCreate from './ProductCreate';
 import { getFarmByID, updateFarm, deleteFarm } from '../services/farm.service';
 import { getProductsByFarm } from '../services/product.service';
+import ErrorAlert from './ErrorAlert';
 class FarmProfile extends Component {
     constructor(props) {
         super();
@@ -20,7 +21,8 @@ class FarmProfile extends Component {
                 zip: ''
             },
             farm_name: '', //used to for header; the header shouldn't update when a user types in the form
-            products: []
+            products: [],
+            error: null
         };
         this.update = this.update.bind(this);
         this.deleteFarm = this.deleteFarm.bind(this);
@@ -29,11 +31,10 @@ class FarmProfile extends Component {
     update() {
         updateFarm(this.state.farm)
             .then(() => {
-                console.log("Updated farm successfully!");
                 this.setState({farm_name: this.state.farm.name});
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 
@@ -44,7 +45,7 @@ class FarmProfile extends Component {
                 //route to farms?
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 
@@ -77,15 +78,16 @@ class FarmProfile extends Component {
                     this.setState({products: data});
                     })
                     .catch(error => {
-                        console.log(error);
+                        this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
                     })
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 
-    render() {        
+    render() {
+        const {error} = this.state;        
         return !this.state.farm ? <h3>Loading...</h3> : 
             <div style= {{backgroundColor: "#1ABC56", paddingBottom: "10px"}}>
                 <Jumbotron style={{ backgroundColor: "#F9F8F9", borderBottomRightRadius: "5rem", borderBottomLeftRadius: "5rem", borderTopLeftRadius: "0rem", borderTopRightRadius: "0rem"}}>
@@ -94,6 +96,7 @@ class FarmProfile extends Component {
                 <Container>
                     <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
                         <h4 className="mt-n4 text-center text-light-accent">Farm Information</h4>
+                        {error}
                         <Form onSubmit={(e) => {e.preventDefault(); this.update();}}>
                             <Form.Group controlId="formFarmName">
                                 <Form.Label className="text-light-accent">Farm Name</Form.Label>

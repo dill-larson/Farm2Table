@@ -3,13 +3,15 @@ import { Container, Jumbotron } from 'react-bootstrap';
 import ProductList from './ProductList';
 import SearchBox from './SearchBox';
 import { getProducts } from '../services/product.service';
+import ErrorAlert from './ErrorAlert';
 
 class Marketplace extends React.Component{
     constructor(){
         super()
         this.state = {
             products: [],
-            searchfield: ''
+            searchfield: '',
+            error: null
         }
     }
     
@@ -24,7 +26,7 @@ class Marketplace extends React.Component{
                 this.setState({products: data});
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 

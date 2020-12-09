@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Col, Container, Form, Row, Jumbotron } from 'react-bootstrap';
 import { auth } from './firebase';
 import { getUserByUID, updateUserData, updateUserEmail, updateUserPassword, deleteUser } from '../services/user.service';
+import ErrorAlert from './ErrorAlert';
 
 export default class UserCard extends Component {
     constructor(props) {
@@ -20,7 +21,8 @@ export default class UserCard extends Component {
             email_password: '', //for change email
             password: '', //for change password
             new_password: '', //for change password
-            delete_password: '' //for deleting user
+            delete_password: '', //for deleting user
+            error: null
         };
         this.updateUser = this.updateUser.bind(this);
         this.changeEmail = this.changeEmail.bind(this);
@@ -51,7 +53,7 @@ export default class UserCard extends Component {
                 console.log("Updated user data");
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             });
     }
     
@@ -61,7 +63,7 @@ export default class UserCard extends Component {
                 console.log("Changed user email");
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             });
     }
 
@@ -71,22 +73,22 @@ export default class UserCard extends Component {
                 console.log("Changed user password.");
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 
     deleteUser() {
-        console.log(this.state);
         deleteUser(auth.currentUser, this.state.delete_password)
             .then(() => {
                 console.log("Deleted user");
             })
             .catch(error => {
-                console.log(error);
+                this.setState({error: <ErrorAlert code={error.code} message={error.message}/>});
             })
     }
 
     render() {
+        const {error} = this.state;
         if(!this.state.userdata) {
             return <h3>Loading...</h3>;
         } else {
@@ -95,6 +97,7 @@ export default class UserCard extends Component {
                     <Container>
                         <Jumbotron style={{backgroundColor: "#F9F8F9", borderRadius: "3rem"}}>
                             <h4 className="mt-n4 text-center text-light-accent">User Information</h4>
+                            {error}
                             <Row>
                                 <Col>
                                     <Form onSubmit={(e) => {e.preventDefault(); this.updateUser();}}>
